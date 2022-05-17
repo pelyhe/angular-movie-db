@@ -1,0 +1,21 @@
+<div class="search-container" >
+  <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)" >
+    <span class="logo" routerLink="/">MovieDB</span>
+    <input
+      ngModel
+      id="search"
+      class="search-input"
+      name="search"
+      placeholder="Search a movie!"
+    />
+    <button class="search-button">Search</button>
+  </form>
+    <div class="form-inline d-flex align-items-center">
+      <div class="btn-group btn-group-lg" btnRadioGroup [(ngModel)]="radioModel">
+        <label class="btn btn-primary" btnRadio="movies" (click)="onMoviesClick()" >Movies</label>
+        <span class="border border-dark"></span>
+        <label class="btn btn-primary" btnRadio="tv-shows" (click)="onShowsClick()" >TV Shows</label>
+      </div>
+    </div>
+</div>
+

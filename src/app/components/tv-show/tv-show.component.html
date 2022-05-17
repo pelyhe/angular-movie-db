@@ -1,0 +1,28 @@
+<h1 id="label" textWrap="true" class="label">{{labelText}}</h1>
+<div class="form-inline d-flex align-items-center">
+  <div class="btn-group btn-group-lg" btnRadioGroup [(ngModel)]="radioModel">
+    <label class="btn btn-primary" btnRadio="top-rated" [routerLink]="'top-rated'">Top rated</label>
+    <span class="border border-dark"></span>
+    <label class="btn btn-primary" btnRadio="popular" [routerLink]="'#'">Popular</label>
+  </div>
+</div>  
+<div class="shows">  
+    <ng-container *ngFor="let show of shows">
+      <div class="show" (click)="selectShowDetails(show.id)">
+        <div class="show-container">
+          <img
+            *ngIf="show.poster_path"
+            src="https://image.tmdb.org/t/p/original/{{show.poster_path}}"
+            alt="thumbnail"
+            class="show-thumbnail"
+          />
+          <p *ngIf="!show.poster_path">No image.</p>
+        </div>
+        <div class="show-details">
+          <p class="show-name">{{show.name}}</p>
+          <p class="show-rating">Rating: {{show.vote_average}}</p>
+        </div>
+      </div>
+    </ng-container> 
+  </div>
+

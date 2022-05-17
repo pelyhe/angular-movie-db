@@ -1,0 +1,28 @@
+<h1 class="upcoming-label">Upcoming movies</h1>
+<div class="form-inline d-flex align-items-center">
+  <div class="btn-group btn-group-lg" btnRadioGroup [(ngModel)]="radioModel">
+    <label class="btn btn-primary" btnRadio="upcoming" [routerLink]="'upcoming'">Upcoming</label>
+    <span class="border border-dark"></span>
+    <label class="btn btn-primary" btnRadio="popular" [routerLink]="''">Popular</label>
+  </div>
+</div>  
+<div class="movies">  
+    <ng-container *ngFor="let movie of movies">
+      <div class="movie" (click)="selectMovieDetails(movie.id)">
+        <div class="movie-container">
+          <img
+            *ngIf="movie.poster_path"
+            src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"
+            alt="thumbnail"
+            class="movie-thumbnail"
+          />
+          <p *ngIf="!movie.poster_path">No image.</p>
+        </div>
+        <div class="movie-details">
+          <p class="movie-name">{{movie.title}}</p>
+          <p class="movie-rating">Popularity: {{movie.popularity}}</p>
+          <p class="movie-release">Release date: {{movie.release_date }}</p>
+        </div>
+      </div>
+    </ng-container> 
+  </div>

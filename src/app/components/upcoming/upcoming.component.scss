@@ -1,0 +1,105 @@
+.filters {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding-left: 20px;
+}
+  
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1500px;
+    margin: 20px auto;
+}
+
+.upcoming-label {
+  text-align: center;
+  font-size: xxx-large;
+  margin: 50px;
+  font-weight: bold;
+}
+
+// hogy ez igy miert mukodik, azt nem tudom
+.btn-group {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .btn {
+    min-width: 160px;  
+  }
+}
+
+
+.movie {
+  width: 320px;
+  margin: 15px;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #215066;
+  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.22);
+  transition-duration: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 4px 3px 11px 6px rgba(0, 0, 0, 0.46);
+    transform: translateY(-3px);
+  }
+
+  &-container {
+    background-color: #000;
+    position: relative;
+    height: 200px;
+    color: #fff;
+    text-align: center;
+  }
+
+  &-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 200px;
+  }
+
+  &-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: (380-200)px;
+  }
+
+  &-name {
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-rating {
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-release {
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
