@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { APIResponse, MovieDetails, Result, ShowResult } from '../models';
+import { APIResponse, MovieDetails, MovieResult, Result, ShowDetails, ShowResult, ShowResultWithPages } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,35 +11,40 @@ export class HttpService {
   constructor(private httpClient: HttpClient) { 
   }
 
-  getPopularMovieList() : Observable<APIResponse<Result>> {
+  getPopularMovieList(page: number) : Observable<MovieResult> {
     let params = 
     new HttpParams()
       .set('api_key', environment.API_KEY)
-      .set('language', 'hu')
-      .set('page', 1);
+      .set('language', 'en')
+      .set('page', page);
 
-    return this.httpClient.get<APIResponse<Result>>(`${environment.BASE_URL}/movie/popular`, {
+    return this.httpClient.get<MovieResult>(`${environment.BASE_URL}/movie/popular`, {
+      params: params
+    });
+  }
+  
+  getUpcomingMovieList(page: number) : Observable<MovieResult> {
+    let params = 
+    new HttpParams()
+      .set('api_key', environment.API_KEY)
+      .set('language', 'en')
+      .set('page', page);
+
+    return this.httpClient.get<MovieResult>(`${environment.BASE_URL}/movie/upcoming`, {
       params: params
     });
   }
 
   
-  getUpcomingMovieList() : Observable<APIResponse<Result>> {
+  getDetailsById(movieId: number) {
     let params = 
     new HttpParams()
       .set('api_key', environment.API_KEY)
-      .set('language', 'hu')
-      .set('page', 1);
+      .set('language', 'en');
 
-    return this.httpClient.get<APIResponse<Result>>(`${environment.BASE_URL}/movie/upcoming`, {
+    return this.httpClient.get<MovieDetails>(`${environment.BASE_URL}/movie/${movieId}`, {
       params: params
     });
-  }
-
-  
-  getDetailsById() {
-
-    return this.httpClient.get<APIResponse<MovieDetails>>(`${environment.BASE_URL}/movie/{movie_id}`);
   }
   
   searchByTitle(search?: string) {
@@ -47,52 +52,68 @@ export class HttpService {
     if (search) {
       params = new HttpParams()
       .set('api_key', environment.API_KEY)
-      .set('language', 'hu')
+      .set('language', 'en')
       .set('page', 1)
       .set('query', search);
     }
 
-    return this.httpClient.get<APIResponse<Result>>(`${environment.BASE_URL}/search/movie`, {
+    return this.httpClient.get<MovieResult>(`${environment.BASE_URL}/search/movie`, {
       params: params
     });
   }
+
+
+
+
+
 
   searchShowByTitle(search?: string) {
     let params;
     if (search) {
       params = new HttpParams()
       .set('api_key', environment.API_KEY)
-      .set('language', 'hu')
+      .set('language', 'en')
       .set('page', 1)
       .set('query', search);
     }
 
-    return this.httpClient.get<APIResponse<ShowResult>>(`${environment.BASE_URL}/search/tv`, {
+    return this.httpClient.get<ShowResultWithPages>(`${environment.BASE_URL}/search/tv`, {
       params: params
     });
   }
 
-  getPopularShowList() : Observable<APIResponse<ShowResult>> {
+  getPopularShowList(page: number) : Observable<ShowResultWithPages> {
     let params = 
     new HttpParams()
       .set('api_key', environment.API_KEY)
-      .set('language', 'hu')
-      .set('page', 1);
+      .set('language', 'en')
+      .set('page', page);
 
-    return this.httpClient.get<APIResponse<ShowResult>>(`${environment.BASE_URL}/tv/popular`, {
+    return this.httpClient.get<ShowResultWithPages>(`${environment.BASE_URL}/tv/popular`, {
       params: params
     });
   }
 
-  getTopRatedShowList() : Observable<APIResponse<ShowResult>> {
+  getTopRatedShowList(page: number) : Observable<ShowResultWithPages> {
     let params = 
     new HttpParams()
       .set('api_key', environment.API_KEY)
-      .set('language', 'hu')
-      .set('page', 1)
+      .set('language', 'en')
+      .set('page', page)
       .set('vote_count.gte', 500);    // to prevent the no-name shows
 
-    return this.httpClient.get<APIResponse<ShowResult>>(`${environment.BASE_URL}/tv/top_rated`, {
+    return this.httpClient.get<ShowResultWithPages>(`${environment.BASE_URL}/tv/top_rated`, {
+      params: params
+    });
+  }
+
+  getShowDetailsById(showId: number) {
+    let params = 
+    new HttpParams()
+      .set('api_key', environment.API_KEY)
+      .set('language', 'en');
+
+    return this.httpClient.get<ShowDetails>(`${environment.BASE_URL}/tv/${showId}`, {
       params: params
     });
   }

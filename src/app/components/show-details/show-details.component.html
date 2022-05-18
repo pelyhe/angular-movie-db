@@ -1,1 +1,15 @@
-<p>show-details works!</p>
+<section class="banner" [ngStyle]="{'background': 'url(' + 'https://image.tmdb.org/t/p/original/' + show?.backdrop_path + ')' }">
+	<div class="container">
+		<div class="content-container">
+            <div class="titles">
+                <span class="rating"><img src="../../../assets/star.svg">{{show?.vote_average}}</span>
+                <h1 class="title">{{show?.name}}</h1>
+            </div>
+			<p class="an"><img src="../../../assets/time.png">{{show?.first_air_date}}</p>
+            <p class="an"><img src="../../../assets/seasons.png">{{show?.seasons?.length}} seasons</p>
+			<p class="des">{{show?.overview}}</p>
+		</div>
+
+	</div>
+	
+</section>

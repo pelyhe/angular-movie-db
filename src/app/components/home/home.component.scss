@@ -28,7 +28,25 @@
   justify-content: center;
 
   .btn {
-    min-width: 160px;  
+    min-width: 160px;
+    margin: 10px;  
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .page-item {
+    margin: 10px;
+    min-width: 150px;
+    
+    .page-link {
+      text-align: center;
+    }
   }
 }
 
@@ -63,7 +81,21 @@
     right: 0;
     margin: 0 auto;
     height: 230px;
+    min-width: 100%;
+    min-height: 100%;
+    filter: blur(12px);
+    -webkit-filter: blur(12px);
+
+    &-clear {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: 230px;
+    }
   }
+
 
   &-details {
     padding: 20px;

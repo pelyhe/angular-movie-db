@@ -2,7 +2,6 @@
 <div class="form-inline d-flex align-items-center">
   <div class="btn-group btn-group-lg" btnRadioGroup [(ngModel)]="radioModel">
     <label class="btn btn-primary" btnRadio="top-rated" [routerLink]="'#'">Top rated</label>
-    <span class="border border-dark"></span>
     <label class="btn btn-primary" btnRadio="popular" [routerLink]="'..'">Popular</label><!--route to previous page-->
   </div>
 </div>  
@@ -16,6 +15,12 @@
             alt="thumbnail"
             class="show-thumbnail"
           />
+          <img 
+            *ngIf="show.poster_path"
+            src="https://image.tmdb.org/t/p/original/{{show.poster_path}}"
+            alt="thumbnail"
+            class="show-thumbnail-clear"
+          />
           <p *ngIf="!show.poster_path">No image.</p>
         </div>
         <div class="show-details">
@@ -25,4 +30,10 @@
       </div>
     </ng-container> 
   </div>
+  <nav >
+    <ul class="pagination pagination-lg">
+      <button id="btn-prev" class="page-item" (click)="onPreviousPage()"><a class="page-link" >Previous</a></button>
+      <button id="btn-next" class="page-item" (click)="onNextPage()"><a class="page-link" >Next</a></button>
+    </ul>
+  </nav>
 

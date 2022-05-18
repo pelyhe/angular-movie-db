@@ -1,4 +1,3 @@
-import { NumberSymbol } from "@angular/common";
 
 interface Cast {
     adult: boolean;
@@ -20,17 +19,12 @@ interface Credits {
     crew: Array<Crew>;
 }
 
-interface Crew {
-    adult: boolean; 
+interface Crew { 
     credit_id: string;
-    department: string;
     gender: number;
     id: number;
     job: string;
-    known_for_department: string;
     name: string;
-    original_name: string;
-    popularity: number;
     profile_path: string;
 }
 
@@ -69,6 +63,27 @@ export interface MovieDetails {
     vote_count: number;
 }
 
+export interface ShowDetails {
+    backdrop_path: String;
+    created_by: Array<Cast>;
+    episode_run_time: Array<number>;
+    first_air_date: string;
+    id: number;
+    name: string;
+    overview: string;
+    poster_path: string;
+    seasons: Array<Season>
+    vote_average: number;
+}
+
+interface Season {
+    id: number;
+    name: string;
+    poster_path: string;
+    season_number: number;
+    episode_count: number;
+}
+
 interface ProductionCompany {
     id: number;
     logo_path: string;
@@ -79,6 +94,20 @@ interface ProductionCompany {
 interface ProductionCountry {
     iso_3166_1: string;
     name: string;
+}
+
+export interface MovieResult {
+    page: number,
+    results: Array<Result>,
+    total_pages: number,
+    total_results: number
+}
+
+export interface ShowResultWithPages {
+    page: number,
+    results: Array<ShowResult>,
+    total_pages: number,
+    total_results: number
 }
 
 export interface Result {

@@ -35,7 +35,6 @@ const routes: Routes = [
   {
     path: 'shows/top-rated',
     component: ShowTopRatedComponent
-
   },
   {
     path: 'shows',

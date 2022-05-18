@@ -1,0 +1,82 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Catamaran', sans-serif;
+	overflow: hidden;
+}
+.container{
+	width: 100%;
+	max-width: 1100px;
+    max-height: 100%;
+	margin: 0 auto;
+}
+
+.banner{
+	height: 100vh;
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+.content-container {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding-left: 100px;
+    padding-bottom: 60px;
+    background-image: linear-gradient(180deg, transparent, rgba(0, 0, 1.9));
+}
+
+.titles{
+
+    display: inline;
+
+    .rating{
+        display: inline-block;
+        margin-right: 10px;
+        padding-right: 10px;
+        border-radius: 30px;
+        padding-left: 10px;
+        background-color: #f1b722;
+        color: #000;
+        font-size: 22px;
+        line-height: 32px;
+        font-weight: 700;
+        vertical-align: center;
+    }
+    .title{
+        vertical-align: center;
+        display: inline-block;
+        padding: 5px;
+        display: inline;
+        max-width: 90%;
+        margin-top: 3px;
+        margin-bottom: 10px;
+        color: #fff;
+        font-size: 75px;
+        line-height: 85px;
+        font-weight: 800;
+        letter-spacing: 0px;
+    }
+}
+
+
+.an{
+	color: white;
+    font-size: large;
+}
+.an img{
+	width: 40px;
+	padding-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    vertical-align: middle;
+}
+.des{
+	margin-bottom: 15px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing:0.5px;
+    width: 750px;
+    line-height: 32px;
+}

@@ -2,11 +2,20 @@
   <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)" >
     <span class="logo" routerLink="/">MovieDB</span>
     <input
+      *ngIf="isMovie"
       ngModel
       id="search"
       class="search-input"
       name="search"
       placeholder="Search a movie!"
+    />
+    <input
+      *ngIf="!isMovie"
+      ngModel
+      id="search"
+      class="search-input"
+      name="search"
+      placeholder="Search a show!"
     />
     <button class="search-button">Search</button>
   </form>

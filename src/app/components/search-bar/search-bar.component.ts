@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SearchBarComponent implements OnInit {
   public radioModel = 'Middle';
-  private isMovie: boolean = true;
+  public isMovie: boolean = true;
 
   constructor(private router: Router) {    
   }

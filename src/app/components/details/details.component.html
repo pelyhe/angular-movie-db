@@ -1,1 +1,15 @@
-<p>details works!</p>
+<section class="banner" [ngStyle]="{'background': 'url(' + 'https://image.tmdb.org/t/p/original/' + movie?.backdrop_path + ')' }">
+	<div class="container">
+		<div class="content-container">
+            <div class="titles">
+                <span class="rating"><img src="../../../assets/star.svg">{{movie?.vote_average}}</span>
+                <h1 class="title">{{movie?.title}}</h1>
+            </div>
+			<p class="an"><img src="../../../assets/time.png">{{movie?.release_date}}</p>
+            <p class="an"><img src="../../../assets/runtime.png">{{movie?.runtime}} minutes</p>
+			<p class="des">{{movie?.overview}}</p>
+		</div>
+
+	</div>
+	
+</section>

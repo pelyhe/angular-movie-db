@@ -1,8 +1,8 @@
 <h1 id="label" textWrap="true" class="label">{{labelText}}</h1>
 <div class="form-inline d-flex align-items-center">
   <div class="btn-group btn-group-lg" btnRadioGroup [(ngModel)]="radioModel">
-    <label class="btn btn-primary" btnRadio="upcoming" [routerLink]="'upcoming'">Upcoming</label>
-    <span class="border border-dark"></span>
+    <label *ngIf="!isSearch" class="btn btn-primary" btnRadio="upcoming" [routerLink]="'upcoming'">Upcoming</label>
+    <label *ngIf="isSearch" class="btn btn-primary" btnRadio="upcoming" [routerLink]="'/upcoming'">Upcoming</label>
     <label class="btn btn-primary" btnRadio="popular" [routerLink]="''">Popular</label>
   </div>
 </div>  
@@ -16,6 +16,12 @@
             alt="thumbnail"
             class="movie-thumbnail"
           />
+          <img 
+            *ngIf="movie.poster_path"
+            src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"
+            alt="thumbnail"
+            class="movie-thumbnail-clear"
+            />
           <p *ngIf="!movie.poster_path">No image.</p>
         </div>
         <div class="movie-details">
@@ -25,4 +31,10 @@
         </div>
       </div>
     </ng-container> 
-  </div>
+</div>
+<nav *ngIf="!isSearch">
+  <ul class="pagination pagination-lg">
+    <button id="btn-prev" class="page-item" (click)="onPreviousPage()"><a class="page-link"  >Previous</a></button>
+    <button id="btn-next" class="page-item" (click)="onNextPage()"><a class="page-link"  >Next</a></button>
+  </ul>
+</nav>
